@@ -68,22 +68,34 @@ namespace ClassLibrary
 
         public List<int> NextIsEven(List<int> numbers)
         {
-            List<int> result = new List<int>();
+            var result = new List<int>();
+
+            for (var index = 0; index < numbers.Count; index++)
+            {
+                if (index == numbers.Count -1)
+                {
+                    continue;
+                }
+                else if (numbers[index + 1] % 2 == 0)
+                {
+                    result.Add(numbers[index]);
+                }
+            }
+
             return result;
         }
 
         public List<int> AccumulateNeighbours(List<int> numbers)
         {
             var result = new List<int>();
-            var listCount = numbers.Count;
-            
-            for (var index = 0; index < listCount; index++)
+
+            for (var index = 0; index < numbers.Count; index++)
             {
                 if (index == 0)
                 {
                     result.Add(numbers[index] + numbers[index + 1]);
                 }
-                else if (index == listCount - 1)
+                else if (index == numbers.Count - 1)
                 {
                     result.Add(numbers[index] + numbers[index - 1]);
                 }
