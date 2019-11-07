@@ -74,7 +74,25 @@ namespace ClassLibrary
 
         public List<int> AccumulateNeighbours(List<int> numbers)
         {
-            List<int> result = new List<int>();
+            var result = new List<int>();
+            var listCount = numbers.Count;
+            
+            for (var index = 0; index < listCount; index++)
+            {
+                if (index == 0)
+                {
+                    result.Add(numbers[index] + numbers[index + 1]);
+                }
+                else if (index == listCount - 1)
+                {
+                    result.Add(numbers[index] + numbers[index - 1]);
+                }
+                else
+                {
+                    result.Add(numbers[index - 1] + numbers[index + 1]);
+                }
+            }
+
             return result;
         }
 
