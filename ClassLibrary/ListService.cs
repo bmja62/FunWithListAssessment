@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ClassLibrary
 {
@@ -21,44 +23,47 @@ namespace ClassLibrary
     {
         public int Count(List<int> numbers)
         {
-            var result = 0;
-            return result;
+            return numbers.Count();
         }
 
         public int Sum(List<int> numbers)
         {
-            int result = 0;
-            return result;
+            return numbers.Sum();
         }
 
         public int Average(List<int> numbers)
         {
-            int result = 0;
-            return result;
+            return Convert.ToInt32(numbers.Average());
         }
 
         public int ValueAt(List<int> numbers, int pos)
         {
-            int result = 0;
-            return result;
+            return numbers[pos];
         }
 
         public int GetPosition(List<int> numbers, int value)
         {
-            int result = 0;
-            return result;
+            return numbers.IndexOf(value);
         }
 
         public List<int> RemoveLargerThan(List<int> numbers, int minValue)
         {
-            List<int> result = new List<int>();
+            var result = new List<int>();
+
+            foreach (var item in numbers)
+            {
+                if (item <= minValue)
+                {
+                    result.Add(item);
+                }
+            }
+
             return result;
         }
 
         public int BigInt(List<int> numbers)
         {
-            int result = 0;
-            return result;
+            return Convert.ToInt32(string.Join("", numbers));
         }
 
         public List<int> NextIsEven(List<int> numbers)
@@ -75,14 +80,13 @@ namespace ClassLibrary
 
         public List<int> Reverse(List<int> numbers)
         {
-            List<int> result = new List<int>();
-            return result;
+            numbers.Reverse();
+            return numbers;
         }
 
         public List<int> Difference(List<int> numbers, List<int> subSet)
         {
-            List<int> result = new List<int>();
-            return result;
+            return numbers.Except(subSet).ToList();
         }
     }
 }
