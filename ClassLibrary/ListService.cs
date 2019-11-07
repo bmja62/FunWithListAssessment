@@ -6,49 +6,49 @@ namespace ClassLibrary
 {
     public interface IListService
     {
-        List<int> AccumulateNeighbours(List<int> numbers);
-        int Average(List<int> numbers);
-        int BigInt(List<int> numbers);
-        int Count(List<int> numbers);
-        List<int> Difference(List<int> numbers, List<int> subSet);
-        int GetPosition(List<int> numbers, int value);
-        List<int> NextIsEven(List<int> numbers);
-        List<int> RemoveLargerThan(List<int> numbers, int minValue);
-        List<int> Reverse(List<int> numbers);
-        int Sum(List<int> numbers);
-        int ValueAt(List<int> numbers, int pos);
+        List<long> AccumulateNeighbours(List<long> numbers);
+        long Average(List<long> numbers);
+        long BigInt(List<long> numbers);
+        long Count(List<long> numbers);
+        List<long> Difference(List<long> numbers, List<long> subSet);
+        long GetPosition(List<long> numbers, long value);
+        List<long> NextIsEven(List<long> numbers);
+        List<long> RemoveLargerThan(List<long> numbers, long minValue);
+        List<long> Reverse(List<long> numbers);
+        long Sum(List<long> numbers);
+        long ValueAt(List<long> numbers, int pos);
     }
 
     public class ListService : IListService
     {
-        public int Count(List<int> numbers)
+        public long Count(List<long> numbers)
         {
             return numbers.Count();
         }
 
-        public int Sum(List<int> numbers)
+        public long Sum(List<long> numbers)
         {
             return numbers.Sum();
         }
 
-        public int Average(List<int> numbers)
+        public long Average(List<long> numbers)
         {
             return Convert.ToInt32(numbers.Average());
         }
 
-        public int ValueAt(List<int> numbers, int pos)
+        public long ValueAt(List<long> numbers, int pos)
         {
             return numbers[pos];
         }
 
-        public int GetPosition(List<int> numbers, int value)
+        public long GetPosition(List<long> numbers, long value)
         {
             return numbers.IndexOf(value);
         }
 
-        public List<int> RemoveLargerThan(List<int> numbers, int minValue)
+        public List<long> RemoveLargerThan(List<long> numbers, long minValue)
         {
-            var result = new List<int>();
+            var result = new List<long>();
 
             foreach (var item in numbers)
             {
@@ -61,14 +61,14 @@ namespace ClassLibrary
             return result;
         }
 
-        public int BigInt(List<int> numbers)
+        public long BigInt(List<long> numbers)
         {
             return Convert.ToInt32(string.Join("", numbers));
         }
 
-        public List<int> NextIsEven(List<int> numbers)
+        public List<long> NextIsEven(List<long> numbers)
         {
-            var result = new List<int>();
+            var result = new List<long>();
 
             for (var index = 0; index < numbers.Count; index++)
             {
@@ -85,9 +85,9 @@ namespace ClassLibrary
             return result;
         }
 
-        public List<int> AccumulateNeighbours(List<int> numbers)
+        public List<long> AccumulateNeighbours(List<long> numbers)
         {
-            var result = new List<int>();
+            var result = new List<long>();
 
             for (var index = 0; index < numbers.Count; index++)
             {
@@ -108,15 +108,16 @@ namespace ClassLibrary
             return result;
         }
 
-        public List<int> Reverse(List<int> numbers)
+        public List<long> Reverse(List<long> numbers)
         {
             numbers.Reverse();
             return numbers;
         }
 
-        public List<int> Difference(List<int> numbers, List<int> subSet)
+        public List<long> Difference(List<long> numbers, List<long> subSet)
         {
             return numbers.Except(subSet).ToList();
         }
+
     }
 }
